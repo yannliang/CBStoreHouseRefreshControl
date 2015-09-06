@@ -138,9 +138,9 @@ NSString *const yKey = @"y";
 {
     if (self.originalTopContentInset == 0) {
         if (isNavigationBarTranslucent) {
-            self.originalTopContentInset = self.scrollView.contentOffset.y;
-        } else {
             self.originalTopContentInset = self.scrollView.contentInset.top;
+        } else {
+            self.originalTopContentInset = self.scrollView.contentOffset.y;
         }
     }
         
