@@ -27,7 +27,7 @@
                           reverseLoadingAnimation:(BOOL)reverseLoadingAnimation
                           internalAnimationFactor:(CGFloat)internalAnimationFactor;
 
-- (void)scrollViewDidScroll;
+- (void)scrollViewDidScroll:(BOOL)isNavigationBarTranslucent;
 
 - (void)scrollViewDidEndDragging;
 

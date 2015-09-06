@@ -134,9 +134,17 @@ NSString *const yKey = @"y";
 
 #pragma mark UIScrollViewDelegate
 
-- (void)scrollViewDidScroll
+- (void)scrollViewDidScroll:(BOOL)isNavigationBarTranslucent
 {
-    if (self.originalTopContentInset == 0) self.originalTopContentInset = self.scrollView.contentInset.top;
+    if (self.originalTopContentInset == 0) {
+        if (isNavigationBarTranslucent) {
+            self.originalTopContentInset = self.scrollView.contentOffset.y;
+        } else {
+            self.originalTopContentInset = self.scrollView.contentInset.top;
+        }
+    }
+        
+    
     self.center = CGPointMake([UIScreen mainScreen].bounds.size.width/2, self.realContentOffsetY*krelativeHeightFactor);
     if (self.state == CBStoreHouseRefreshControlStateIdle)
         [self updateBarItemsWithProgress:self.animationProgress];
